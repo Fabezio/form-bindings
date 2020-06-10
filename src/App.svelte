@@ -6,6 +6,7 @@
 	let selectedOption = 2
 	let price = 0
 	let language = ["html"]
+	let school = 'udemy'
 
 	let option = "frontend"
 	let intro = false
@@ -17,10 +18,10 @@
 
 <main>
 	<h1>Bindings</h1>
-	<div id="text">
+	<!-- <div id="text">
 		<CustomInput bind:val={val }  />
 		<Toggle bind:chosenOption={selectedOption} />
-		<!-- <hr> -->
+		
 		<div>{val || 'enter a value above'}</div>
 		<br>
 	</div>
@@ -29,7 +30,7 @@
 		<input type='number' bind:value={price}>
 		<div>${price}</div>
 		<br>
-	</div>
+	</div> -->
 
 	<div id="checkbox">
 		<label for="language"><input type="checkbox" bind:group={language} value="js"> js</label>
@@ -42,11 +43,20 @@
 		<label for="radio"><input type="radio" bind:group={option} value='backend'> backend</label>
 		<label for="radio"><input type="radio" bind:group={option} value='full stack'> full stack</label>
 	</div>
+
+	<div id="select">
+		<select bind:value={school}>
+			<option value='openclassrooms'> openclassrooms</option>
+			<option value='codecademy'> codecademy</option>
+			<option value='udemy'> udemy</option>
+		</select>
+	</div>
 	<button disabled={!language.length} on:click={() => intro = !intro}>introduce myself</button>
 	{#if intro && language.length}
 		 <!-- content here -->
 	<h4>Hi, i'm a {option} web developer;
-	i know {language.join(', ')} language{language.length > 1 ? "s" : ""}
+	i know {language.join(', ')} language{language.length > 1 ? "s" : ""}. <br>
+	i've been learning on {school}.com 
 	</h4>
 	{:else if !language.length}
 	<h4 class="red">you need to select at least one language</h4>
