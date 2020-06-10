@@ -48,6 +48,8 @@
 	<h4>Hi, i'm a {option} web developer;
 	i know {language.join(', ')} language{language.length > 1 ? "s" : ""}
 	</h4>
+	{:else if !language.length}
+	<h4 class="red">you need to select at least one language</h4>
 	{/if}
 
 </main>
@@ -66,6 +68,8 @@
 		font-size: 4em;
 		font-weight: 100;
 	}
+
+	.red {color: red}
 
 	@media (min-width: 640px) {
 		main {
