@@ -1,5 +1,9 @@
 <script>
   export let val
+
+  export function empty() {
+    val = ''
+  }
   // function setVal(e) {
   //   val = e.target.val
 
